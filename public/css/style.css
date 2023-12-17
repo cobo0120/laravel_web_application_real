@@ -1,0 +1,52 @@
+   table, th, td {
+   border-collapse: collapse;
+   padding: 8px 16px;
+   text-align: center;
+   }
+
+   thead {
+   background-color: blue;
+   color: white;
+   }
+
+   tbody tr:nth-child(odd) {
+   background-color: #eee;
+   }
+
+   .clear-column {
+   background-color: #fff;
+   width: 40px;
+   }       
+
+   button {
+    height: 3em;
+    margin: 16px 0;
+    padding: 4px 0;
+    border-radius: 10px;
+    background-color: blue;
+    color: white;
+    }
+
+    .close-icon {
+     cursor: pointer;
+     }
+
+     button:hover,
+     .close-icon:hover {
+     opacity: .7;
+     }
+
+     button:active {
+     opacity: .4;
+     }
+    
+    .form-control.text-right {
+     text-align: right;
+    }
+
+
+   
+
+
+
+
