@@ -294,7 +294,6 @@ public function update_reapplication(Request $request, $id){
     $item->save();
     $i++;
     };
-
     
     
     // return redirect()->route('posts.index')->with('flash_message', '申請されました。');
