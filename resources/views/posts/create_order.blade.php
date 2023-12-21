@@ -103,11 +103,17 @@
                         </thead>
                         <tbody>
                             @foreach ($items as $item)
-                                <tr class="item" readonly>
+                                <tr class="item" distable>
+
                                     <td>
-                                        <input class="form-control" name="consumables_equipment_id[0]"
-                                            value="{{ old('consumables_equipment_id', $item->consumables_equipment_id) }}"
-                                            readonly>
+                                        @foreach ($consumables as $consumable)
+                                            @if ($consumable->id == $item->consumables_equipment_id)
+                                                <input class="form-control" name=""
+                                                    value="{{ $consumable->consumables_equipment }}" readonly>
+                                                <input type="hidden" name="consumables_equipment_id"
+                                                    value="{{ old('consumables_equipment_id', $consumable->id) }}">
+                                            @endif
+                                        @endforeach
                                     </td>
                                     <td>
                                         <input type="text" class="form-control" name="product_name[0]"
@@ -129,7 +135,9 @@
                                     </td>
                                     <td>
                                         <input class="form-control" name="account_id[0]"
-                                            value="{{ old('accound_id', $item->account_id) }}" readonly>
+                                            value="{{ old('accound_id', $item->account->account) }}" readonly>
+                                        <input type="hidden" name="account_id"
+                                            value="{{ old('account_id', $item->account_id) }}">
                                     </td>
                                     <td class="clear-column close-icon">✖</td>
                                 </tr>
