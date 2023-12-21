@@ -271,4 +271,52 @@ const choiceButton = (mailAddress) => {
   inputDestination.value =mailAddress;
   };
 
+// エンターキーを押してもsubmit送信されないようにする
+ document.getElementById("search-input").addEventListener('keydown', function(e) {
+ if (e.key == 'Enter') {
+  e.preventDefault();
+  // 検索機能を開始する
+  performSearch();
+ }
+ });
 
+ // 検索機能
+ function performSearch(){
+  const userName = $("#search-input").val();
+  // 検索ワードが空欄の場合は何もせずに処理を終了
+  if (!userName.trim()) {
+      return;
+  }
+  $.ajax({
+      type: "GET",
+      dataType: 'json',
+      async: true,
+      url: '../search_destination',
+      data: {'search': userName},
+  })
+  .done((data) => {
+      // データがダウンロードできたときの処理
+      console.log(data);
+      let tbody = $('#destination_body').empty()
+      for(let i=0; i<data.names.length; i++){
+      let user = data.names[i];
+      console.log(user);
+      if(user.department && user.department.length > 0){
+      tbody.append('<tr><td>'+user.id+'</td><td>'+user.name+'</td><td>'+user.department[0].department_name+'</td><td>'+user.email+'</td><td><button type="button" class="btn btn-outline-primary" onclick="choiceButton(\'' + user.email + '\')" data-bs-dismiss="modal">選択</button></td></tr>');
+      }};
+      
+      // 取得したデータを使って検索結果を表示する例
+      if (data.length > 0) {
+          // 検索結果がある場合の処理
+          // ここで取得したデータを使って、検索結果を表示するためのコードを追加
+          
+      } else {
+          // 検索結果がない場合の処理
+          console.log('該当する結果がありません。');
+      }
+  })
+  .fail((error) => {
+      // データがダウンロードできなかったときの処理
+      console.error('検索エラー:', error);
+  });
+ };
