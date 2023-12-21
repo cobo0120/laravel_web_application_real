@@ -227,7 +227,7 @@
                 {{-- 送信先メールアドレスの選択検索機能を設けてアドレスのパラメータを変数に入れてMailableクラスに入れる --}}
 
                 <div class="form-group col-4 my-4">
-                    <label for="email">送信先</label>
+                    <label for="email">送信先(CC)</label>
                     {{-- Valueに購買担当者のメールを直接記載してHTTPリクエストでコントローラーに渡すかMailクラスにそのまま記載する  --}}
                     <input id="email" class="form-control choice-email" type="email" value=""
                         name="email">
