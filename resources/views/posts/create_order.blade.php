@@ -251,7 +251,7 @@
                 <div class="form-group col-2 mb-2">
                     <label class="label">納品予定日</label>
                     <input class="form-control" style="width: 130px" type="date" name="delivery_day"
-                        style="width: 125px" value="">
+                        style="width: 125px" value="" required>
                 </div>
 
 
