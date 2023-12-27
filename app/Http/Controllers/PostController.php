@@ -281,7 +281,7 @@ public function update_reapplication(Request $request, $id){
 
     // 新たにレコードを作成
     $i = 0;
-    var_dump($request->consumables_equipment_id);
+    // var_dump($request->consumables_equipment_id);
     foreach ($request->consumables_equipment_id as $val) {
     $item = new Item();
     $item->post_id = $post->id;
