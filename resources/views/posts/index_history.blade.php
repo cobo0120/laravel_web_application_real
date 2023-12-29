@@ -22,7 +22,7 @@
                         <!-- ここに並検索ボックスを作成する -->
                         <form method="get" action="{{ route('posts.index_history') }}" class="form-group col-2">
                             @csrf
-                            <input type="text" name="search" class="form-control mb-4" placeholder="購入先入力">
+                            <input type="text" name="search" class="form-control mb-4" placeholder="購入先or申請者名入力">
                             <button class="btn btn-outline-success mb-4">検索する</button>
                         </form>
                     </div>

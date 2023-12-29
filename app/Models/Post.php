@@ -40,7 +40,7 @@ class Post extends Model
         $search_split = mb_convert_kana($search, 's');//全角スペースを半角
         $search_split2 = preg_split('/[\s]+/',$search_split);//空白で区切る
         foreach($search_split2 as $value) {
-        $query->where('purchase','like','%'.$value.'%');
+    $query->leftJoin('users','user_id','=','users.id')->where('purchase','like','%'.$value.'%')->orWhere('users.name','like','%'.$value.'%');
       }
     }
     return $query;

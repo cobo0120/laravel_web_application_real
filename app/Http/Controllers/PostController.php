@@ -191,9 +191,9 @@ public function index_history(Request $request){
     // 検索機能
     
     $search = $request->search;
-    $query = Post::search($search)->orderBy('id', 'desc');//クエリのローカルスコープ
+    $query = Post::search($search)->orderBy('posts.id', 'desc');//クエリのローカルスコープ
     $posts = $query->select
-    ('id','application_status','application_day','department_id','user_id','purchase','delivery_hope_day','total_amount','destination','delivery_day')->paginate(10);// idと購入先を検索画面をページネーションで表示されるページを調整
+    ('posts.id','application_status','application_day','posts.department_id','user_id','purchase','delivery_hope_day','total_amount','destination','delivery_day')->paginate(10);// idと購入先を検索画面をページネーションで表示されるページを調整
 
     // $items = Item::select('product_name')->get();
     return view('posts.index_history',compact('posts'));
