@@ -205,8 +205,10 @@ public function index_history(Request $request){
 public function show_applicant($id){
     $posts = Post::find($id);
     $items = $posts->items;
+    $consumables = Consumable::all();
+    $accounts = Account::all();
     // dd($items);
-    return view('posts.show_applicant', compact('posts', 'items'));
+    return view('posts.show_applicant', compact('posts', 'items','consumables','accounts'));
     // dd($items);
 }
 
