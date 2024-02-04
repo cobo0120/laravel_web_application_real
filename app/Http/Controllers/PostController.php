@@ -231,6 +231,8 @@ public function create_copy_applicant($id)
     $items = $posts->items;
     $consumables = Consumable::all();
     $accounts = Account::all();
+
+    
     return view('posts.create_copy_applicant',compact('posts','items','consumables','accounts'));
 }
 
